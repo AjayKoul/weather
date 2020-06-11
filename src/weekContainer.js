@@ -34,7 +34,7 @@ class WeekContainer extends React.Component{
         unitType: "celsius"
     }
        whenMounted=()=>{
-    const forecastUrl =`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&APPID=${process.env.REACT_APP_KEY}`;
+    const forecastUrl =`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&APPID=${process.env.REACT_APP_KEY}`;
     fetch(forecastUrl)
     .then(res => { //if user enters wrong city name and 404 occurs then below code will display alert and reload tha page
         if(res.ok){ 
@@ -55,7 +55,7 @@ class WeekContainer extends React.Component{
         //IMPORTANT: SETSTATE IS ASYNCHRONOUS CAN'T TELL WHEN WILL IT EXECUTE SO USE CALLBACK SETSTATE
     })
 
-    const weatherUrl =`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&APPID=${process.env.REACT_APP_KEY}`;
+    const weatherUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&APPID=${process.env.REACT_APP_KEY}`;
     fetch(weatherUrl)
     .then(response=> response.json())
     .then(Data => this.setState({weatherNow: Data},()=>{
